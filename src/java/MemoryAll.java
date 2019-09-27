@@ -1,0 +1,118 @@
+//this servlet works for registration only. and directs to AdminRegistration.java servlet and then index.html(for AdminRegistration.html actually).
+
+import com.mysql.jdbc.Connection;
+import com.mysql.jdbc.Statement;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+public class MemoryAll extends HttpServlet
+{
+
+    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException, ClassNotFoundException, SQLException
+    {
+        response.setContentType("text/html;charset=UTF-8");
+        try (PrintWriter out = response.getWriter())
+        {
+            String adminid2 = request.getParameter("adminid2");
+            String adminpass2 = request.getParameter("adminpass2");
+            String adminname2 = request.getParameter("adminname2");
+            String adminphone2 = request.getParameter("adminphone2");
+
+            out.println("<br/><br/>");
+            try
+            {
+                Class.forName("com.mysql.jdbc.Driver");
+                out.println("Driver loaded");
+                out.println("<br/><br/>");
+
+                Connection con = (Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/diary", "root", "");
+                out.println("Connection Succes");
+                //  out.println("Welcome"+" "+adminname);
+                out.println("<br/><br/>");
+
+                Statement stmt1 = (Statement) con.createStatement();
+                ResultSet rs = stmt1.executeQuery("select * from memory");
+                out.print("id" + "::");
+                out.print("date" + "::");
+                out.print("subject" + "::");
+                out.print("place" + "::");
+                out.print("description" + "::");
+                while (rs.next())
+                {
+                    out.print("<br>");
+                    String id = rs.getString("id");
+                    String edate = rs.getString("edate");
+                    String subject = rs.getString("subject");
+                    String place = rs.getString("place");
+                    String description = rs.getString("description");
+                    out.print(id + "::");
+                    out.print(edate + "::");
+                    out.print(subject + "::");
+                    out.print(place + "::");
+                    out.print(description + "::");
+                }
+                out.print("<br>");
+            }
+            catch (Exception e)
+            {
+
+            }
+
+        }
+    }
+
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException
+    {
+        try
+        {
+            processRequest(request, response);
+        }
+        catch (ClassNotFoundException ex)
+        {
+            Logger.getLogger(AdminRegistration.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        catch (SQLException ex)
+        {
+            Logger.getLogger(AdminRegistration.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException
+    {
+        try
+        {
+            processRequest(request, response);
+        }
+        catch (ClassNotFoundException ex)
+        {
+            Logger.getLogger(AdminRegistration.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        catch (SQLException ex)
+        {
+            Logger.getLogger(AdminRegistration.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    @Override
+    public String getServletInfo()
+    {
+        return "Short description";
+    }// </editor-fold>
+
+}

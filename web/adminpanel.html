@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <link rel="stylesheet" href="mydesign.css">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <a href="VisitorCounterSession">Visitor Counter</a><br>
+        <p>Welcome to Admin panel.</p>
+        <form action="AdminUpdate" method="get" class="formcolor">
+            <pre>            
+                  Id:          <input type="text" name="adminid2" placeholder="Admin Id" STYLE="color: #FFFFFF; font-family: Verdana; font-weight: bold; font-size: 12px; background-color: #72A4D2;" >
+            Password:          <input type="text" name="adminpass2" placeholder="Password" STYLE="color: #FFFFFF; font-family: Verdana; font-weight: bold; font-size: 12px; background-color: #72A4D2;" >
+            <br>
+            <input type="submit" value="Update Admin" onclick="return clicked();" class="button" >
+                <script>
+                    function clicked() {
+                        return confirm('Admin Updated Successfully!!!');
+                    }
+                </script>
+            </pre>
+        </form>
+
+        <a href="MemoryAll">All Memories</a><br>
+        <p>Welcome to Memory - Update.</p>
+        <form action="MemoryUpdate" method="get" class="formcolor">
+            <pre>            
+                        Id:           <input type="text" name="id4" placeholder="Id" STYLE="color: #FFFFFF; font-family: Verdana; font-weight: bold; font-size: 12px; background-color: #72A4D2;" >
+                      Date:           <input type="text" name="date4" placeholder="Date" STYLE="color: #FFFFFF; font-family: Verdana; font-weight: bold; font-size: 12px; background-color: #72A4D2;" >
+                   Subject:           <input type="text" name="subject4" placeholder="Subject" STYLE="color: #FFFFFF; font-family: Verdana; font-weight: bold; font-size: 12px; background-color: #72A4D2;" >
+                    Place :           <input type="text" name="place4" placeholder="Place" STYLE="color: #FFFFFF; font-family: Verdana; font-weight: bold; font-size: 12px; background-color: #72A4D2;" >
+              Description :           <input type="text" name="description4" placeholder="Description" STYLE="color: #FFFFFF; font-family: Verdana; font-weight: bold; font-size: 12px; background-color: #72A4D2;" >
+            <br>
+              <input type="submit" value="Update Memory" onclick="return clicked();" class="button" >
+                <script>
+                    function clicked() {
+                        return confirm('Memory Updated Successfully!!!');
+                    }
+                </script>
+            </pre>
+        </form>
+        <p>Welcome to Memory - Insert.</p>
+        <form action="MemoryInsert" method="get" class="formcolor">
+            <pre>            
+                        Id:           <input type="text" name="id5" placeholder="Id" STYLE="color: #FFFFFF; font-family: Verdana; font-weight: bold; font-size: 12px; background-color: #72A4D2;" >
+                      Date:           <input type="text" name="date5" placeholder="Date" STYLE="color: #FFFFFF; font-family: Verdana; font-weight: bold; font-size: 12px; background-color: #72A4D2;" >
+                   Subject:           <input type="text" name="subject5" placeholder="Subject" STYLE="color: #FFFFFF; font-family: Verdana; font-weight: bold; font-size: 12px; background-color: #72A4D2;" >
+                    Place :           <input type="text" name="place5" placeholder="Place" STYLE="color: #FFFFFF; font-family: Verdana; font-weight: bold; font-size: 12px; background-color: #72A4D2;" >
+              Description :           <input type="text" name="description5" placeholder="Description" STYLE="color: #FFFFFF; font-family: Verdana; font-weight: bold; font-size: 12px; background-color: #72A4D2;" >
+            <br><br>
+           
+              <input type="submit" value="Memory Insert" onclick="return clicked();" class="button" >
+                <script>
+                    function clicked() {
+                        return confirm('Memory Inserted Successfully!!!');
+                    }
+                </script>
+            </pre>
+        </form>
+        <p>Welcome to Memory - Delete.</p>
+        <form action="MemoryDelete" method="get" class="formcolor">
+            <pre>            
+                        Id:           <input type="text" name="id7" placeholder="Id" STYLE="color: #FFFFFF; font-family: Verdana; font-weight: bold; font-size: 12px; background-color: #72A4D2;" >
+            <br><br>
+           
+              <input type="submit" value="Memory Delete" onclick="return clicked();" class="button" >
+                <script>
+                    function clicked() {
+                        return confirm('Memory Deleted Successfully!!!');
+                    }
+                </script>
+            </pre>
+        </form>
+        <script>
+// When the user clicks on <div>, open the popup
+            function myFunction() {
+                var popup = document.getElementById("myPopup");
+                popup.classList.toggle("show");
+            }
+        </script>
+    </body>
+</html>
+
